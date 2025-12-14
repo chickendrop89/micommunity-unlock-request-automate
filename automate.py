@@ -33,8 +33,8 @@ TARGET_TIME_STR = "23:59:59"
 TARGET_TIMEZONE_LIVE = timedelta(hours=8)
 NTP_SERVER = "pool.ntp.org"
 
-DEVICE_XML_PATH = "/sdcard/ui_dump.xml"
-LOCAL_XML_PATH = "ui_dump.xml"
+DEVICE_XML_PATH = "/sdcard/.ui_dump.xml"
+LOCAL_XML_PATH = ".ui_dump.xml"
 ADB_STAY_ON_KEY = "stay_on_while_plugged_in"
 DEFAULT_TIMEOUT_VALUE = None
 
@@ -184,6 +184,9 @@ def restore_power_settings():
             print(f"[+] Restored screen_off_timeout to {DEFAULT_TIMEOUT_VALUE}.")
         except (OSError, subprocess.CalledProcessError):
             print("[-] Could not fully restore screen power settings.")
+
+    run_adb_command(f"shell rm -f {DEVICE_XML_PATH}")
+    print("[+] Removed the temporary file from the device.")
 
 
 def main():

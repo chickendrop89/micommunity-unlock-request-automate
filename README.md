@@ -70,3 +70,6 @@ python automate.py --clicks 10 --delay 2
 ```shell
 python automate.py --test --test-timezone 2 --test-time 16:20
 ```
+
+## Credits
+Concept from [EstimateMuted4573 on Reddit](https://www.reddit.com/r/Android/comments/1mgn0yj/xiaomis_bootloader_unlock_system_is_broken_heres)

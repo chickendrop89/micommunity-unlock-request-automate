@@ -331,7 +331,7 @@ def main():
         if click_num < num_clicks - 1:
             time.sleep(click_delay)
 
-    print("\n[SUCCESS] Click sequence completed.")
+    print("[SUCCESS] Click sequence completed.")
 
 
 if __name__ == "__main__":

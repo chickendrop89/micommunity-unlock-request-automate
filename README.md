@@ -40,7 +40,7 @@ The script will work without any arguments. But if you want to customize or
 do tests, here is the usage:
 
 ```shell
-Usage: script.py [-h] [--clicks CLICKS] [--delay DELAY] [--test] [--test-timezone TEST_TIMEZONE] [--test-time TEST_TIME]
+Usage: automate.py [-h] [--clicks CLICKS] [--delay DELAY] [--test] [--test-timezone TEST_TIMEZONE] [--test-time TEST_TIME]
 
 Python script to automate Mi Community unlock request at 00:00 beijing time via ADB
 
@@ -58,15 +58,15 @@ options:
 ## Examples
 1. Running the script normallÿ
 ```shell
-python script.py 
+python automate.py 
 ```
 
 2. Doing 10 clicks with 2 second delay in between
 ```shell
-python script.py --clicks 10 --delay 2
+python automate.py --clicks 10 --delay 2
 ```
 
 3. Doing a dirty click test
 ```shell
-python script.py --test --test-timezone 2 --test-time 16:20
+python automate.py --test --test-timezone 2 --test-time 16:20
 ```

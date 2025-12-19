@@ -196,13 +196,15 @@ def get_ntp_time(server: str = NTP_SERVER) -> datetime:
 
 
 def validate_and_format_test_time(test_time: str) -> str | None:
-    """Validates and formats test time to HH:MM:SS format."""
+    """Validates and formats test time to HH:MM:SS.fff format."""
     parts = test_time.split(":")
     match parts:
         case [_, _]:
-            return f"{test_time}:00"
+            return f"{test_time}:00.000"
         case [_, _, _]:
-            return test_time
+            if "." in parts[2]:
+                return test_time
+            return f"{test_time}.000"
         case _:
             return None
 

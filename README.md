@@ -18,10 +18,7 @@ This script requires the device to have:
 This will not work on devices that have Chinese firmware/region,
 or specific devices that have blocked bootloader unlock.
 
-This script bundles basic `ADB` for most common OSes with `x86_64` (+ `arm64` MacOS only) 
-architectures. On devices with a different environment, `ADB` from `PATH` will be used!
-
-This script also requires `Python 3.10+` and `ntplib` to be installed:
+This script also requires `Python 3.10+`, `ntplib` and `adbutils` to be installed:
 ```shell
 pip install -r requirements.txt
 ```
@@ -35,8 +32,8 @@ The script will disable screen timeout, check time against a NTP server to be pr
 calculate when the quota will be reset, and also calculate the center of the 
 "Apply for unlocking" button via `ADB`. 
 
-When beijing time hits 23:59:59, the script will simulate 2 clicks to the button 
-by default with a 1 second delay, and that's it.
+When beijing time hits 23:59:59.800, the script will simulate 2 clicks to the button 
+by default with a 2 second delay, and that's it.
 
 ## Usage
 The script will work without any arguments. But if you want to customize or
@@ -50,7 +47,7 @@ Python script to automate Mi Community unlock request at 00:00 beijing time via 
 options:
   -h, --help            show this help message and exit
   --clicks CLICKS       Number of clicks (default: 2)
-  --delay DELAY         Delay between clicks in seconds (default: 1.0)
+  --delay DELAY         Delay between clicks in seconds (default: 2.0)
   --test                Run in test mode
   --test-timezone TEST_TIMEZONE
                         Timezone offset in hours for test mode (required if --test is used)
@@ -64,9 +61,9 @@ options:
 python automate.py 
 ```
 
-2. Doing 10 clicks with 2 second delay in between
+2. Doing 10 clicks with 1 second delay in between (not recommended)
 ```shell
-python automate.py --clicks 10 --delay 2
+python automate.py --clicks 10 --delay 1
 ```
 
 3. Doing a dirty click test

@@ -1,1 +1,2 @@
 ntplib==0.4.0
+adbutils>=2.0.0
